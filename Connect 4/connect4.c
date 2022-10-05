@@ -15,7 +15,7 @@ board copyBoard(board c);
 
 
 struct board_structure {
-/*Put something suitable here*/
+
 char **boardArray;
 int numRows;
 int numCols;
@@ -24,7 +24,7 @@ char nextPlayer;
 };
 
 board setup_board(){
-//You may put code here
+
   board newBoard = malloc(sizeof(struct board_structure));
   if(newBoard == NULL){
     fprintf(stderr, "Failed to allocate required memory");
@@ -36,7 +36,7 @@ board setup_board(){
 }
 
 void cleanup_board(board u){
-//You may put code here
+
   for(int i = 0; i< u->numRows; i++){
     free(u->boardArray[i]);
   }
@@ -45,7 +45,7 @@ void cleanup_board(board u){
 }
 
 void read_in_file(FILE *infile, board u){
-//You may put code here
+
   char c;
   int countLines = 0;
   int countChars = 0;
@@ -118,7 +118,7 @@ void read_in_file(FILE *infile, board u){
 }
 
 void write_out_file(FILE *outfile, board u){
-//You may put code here
+
   if(outfile == NULL){
     fprintf(stderr,"Error opening file");
     cleanup_board(u);
@@ -130,7 +130,7 @@ void write_out_file(FILE *outfile, board u){
 }
 
 char next_player(board u){
-//You may put code here
+
     if(u->nextPlayer =='x'){
       return 'o';
     }else{
@@ -139,7 +139,7 @@ char next_player(board u){
 }
 
 char current_winner(board u){
-//You may put code here
+
   bool xWin = false;
   bool oWin = false;
   bool notFull = false;
@@ -225,7 +225,7 @@ char current_winner(board u){
 }
 
 struct move read_in_move(board u){
-//You may put code here
+
   
   struct move newMove;  
  
@@ -244,7 +244,7 @@ struct move read_in_move(board u){
 }
 
 int is_valid_move(struct move m, board u){
-//You may put code here
+
   
 
   if(abs(m.row) > u->numRows){
@@ -265,7 +265,7 @@ int is_valid_move(struct move m, board u){
 }
 
 char is_winning_move(struct move m, board u){
-//You may put code here
+
   
   board boardCopy = copyBoard(u);
   
@@ -279,7 +279,7 @@ char is_winning_move(struct move m, board u){
 
 
 void play_move(struct move m, board u){
-//You may put code here
+
 int temp, i;
 char currentToken;
 
@@ -327,7 +327,7 @@ if(m.row != 0){
 current_winner(u);
 }
 
-// //You may put additional functions here if you wish.
+
 int gravity(int currentCol, board u){
   int i;
   for(i = u->numRows - 1; i >= 0; i--){
